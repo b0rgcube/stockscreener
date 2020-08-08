@@ -3,6 +3,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import copy from 'rollup-plugin-copy-assets-to';
 import cleaner from 'rollup-plugin-cleaner';
 import json from '@rollup/plugin-json';
+import babel from 'rollup-plugin-babel';
 
 export default {
     input: 'src/index.js',
@@ -26,5 +27,8 @@ export default {
         json(),
         resolve(),
         commonjs(),
+        babel({
+            exclude: 'node_modules/**',
+        }),
     ]
 };
